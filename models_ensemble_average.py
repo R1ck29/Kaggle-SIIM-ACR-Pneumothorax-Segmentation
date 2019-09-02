@@ -39,17 +39,8 @@ args = parser.parse_args()
 
 def notify_results():
     competition_name = 'SIIM\n'
-
     model_name = submission_file
-
-    loss_function = 'MixedLoss'  # 'MixedLoss'  # 'dice_coef_loss_bce' lovasz_hinge
-    metrics_name = 'IoU_Dice'  # 'Kaggle_IoU_Precision' and Kaggle Metric
-
-    # comment = 'Fold={}, img_size_target={}, BATCH_SIZE={} EPOCHS = {} LR={}, loss={}, metrics={}'.format(
-    #     args.fold, args.img_size_target, args.batch_size, args.epochs, args.learning_rate, loss_function, metrics_name)
-
     comment = 'version={}'.format(args.version)
-    # news = 'RAdam. 100 epochs'
     message = competition_name + '\n' + model_name + '\n' + comment + '\n'
     send_line_notification(message=message)
 
@@ -143,4 +134,7 @@ if args.folder=='':
 else:
     df_avg_sub.to_csv(args.output_path + args.folder + '/' + 'ensemble/' + submission_file, index=False)
 
-notify_results()
+try:
+    notify_results()
+except:
+    pass
