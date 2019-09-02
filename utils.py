@@ -9,7 +9,7 @@ from datetime import datetime
 
 # ## Utility functions
 def send_line_notification(message):
-    line_token = 'n0n17FHdCD2gat5GXV2fm9yA2pjTR7f3Swx4dpyftQZ'
+    line_token = ''
     endpoint = 'https://notify-api.line.me/api/notify'
     message = "\n{}".format(message)
     payload = {'message': message}

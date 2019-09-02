@@ -8,7 +8,7 @@ for i in 0 1 2 3 4; do
     --patience 5 \
     --train_image_path /home/rick/siim_data/stage2/stage2_train \
     --description se_resnext50_32x4d_batch4_radam_patience_5 \
-    --version 35 > ../logs/out_version_stage2_fold_${i}_4.log \
+    --version 35 > ./logs/out_version_stage2_fold_${i}_4.log \
 
     sleep 3;
 
@@ -22,7 +22,7 @@ done
 
 ###############ENSEMBLE####################
 nohup nohup python3 models_ensemble_average.py \
---version 35 > ../logs/out_ensemble_trained_stage2_4.log
+--version 35 > ./logs/out_ensemble_trained_stage2_4.log
 
 
 

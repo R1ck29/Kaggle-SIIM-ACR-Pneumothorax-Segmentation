@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# This Kernel uses UNet architecture with ResNet34 encoder, I've used [segmentation_models.pytorch](https://github.com/qubvel/segmentation_models.pytorch) library which has many inbuilt segmentation architectures. This kernel is inspired by [Yury](https://www.kaggle.com/deyury)'s discussion thread [here](https://www.kaggle.com/c/siim-acr-pneumothorax-segmentation/discussion/99440#591985). I've used snippets from multiple other public kernels I've given due credits at the end of this notebook.
-# 
-# What's down below?
-# 
+# This Kernel uses UNet architecture with ResNet34 encoder, I've used [segmentation_models.pytorch](https://github.com/qubvel/segmentation_models.pytorch) library
+# which has many inbuilt segmentation architectures.
+# This kernel is inspired by [Yury](https://www.kaggle.com/deyury)'s discussion thread [here](https://www.kaggle.com/c/siim-acr-pneumothorax-segmentation/discussion/99440#591985). #
+#
 # * UNet with imagenet pretrained ResNet34 architecture
 # * Training on 512x512 sized images/masks with Standard Augmentations
 # * MixedLoss (weighted sum of Focal loss and dice loss)
@@ -367,15 +367,7 @@ def notify_results(score):
 
     loss_function = 'MixedLoss'  # 'MixedLoss'  # 'dice_coef_loss_bce' lovasz_hinge
     metrics_name = 'IoU_Dice'  # 'Kaggle_IoU_Precision' and Kaggle Metric
-    # try:
-    #     best_thr,best_iou = threshold_best, iou_best
-    #     print(best_thr,best_iou)
-    # except:
-    #     best_thr = 'None'
-    #     best_iou = 'None'
 
-    # 'dice_loss' best_thr, best_iou
-    # monitor = metrics_name # 'dice_coef_loss_bce'
     comment = 'Fold={}, img_size_target={}, BATCH_SIZE={} epochs = {} LR={}, loss={}, metrics={}'.format(
         args.fold, args.img_size_target, args.batch_size, args.epochs, args.learning_rate, loss_function, metrics_name)
 
@@ -385,7 +377,6 @@ def notify_results(score):
         message = competition_name + '\n' + model_name + '\n' + comment + '\n' + args.description + '\n' + score
     send_line_notification(message=message)
 
-    # In[ ]:
     print(message)
 
 
@@ -415,4 +406,4 @@ if __name__ == '__main__':
     try:
         notify_results(score=score)
     except:
-        notify_results(score='None')
+        pass
