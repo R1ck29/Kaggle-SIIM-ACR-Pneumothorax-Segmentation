@@ -7,8 +7,6 @@
 # 
 # At the moment, the final average solution does not produce a better score than the individual best submission.
 
-# In[1]:
-
 
 import numpy as np
 import pandas as pd

@@ -14,4 +14,4 @@ done
 ###############ENSEMBLE####################
 nohup nohup python3 models_ensemble_average.py \
 --best_score_weight True \
---version 28 > ../logs/out_version_stage2_ensemble_best_score.log
+--version 28 > ./logs/out_version_stage2_ensemble_best_score.log

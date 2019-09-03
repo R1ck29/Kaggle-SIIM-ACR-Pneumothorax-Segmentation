@@ -47,7 +47,7 @@ def seed_everything(seed=10):
     torch.manual_seed(seed)
     torch.cuda.manual_seed(seed)
     torch.backends.cudnn.benchmark = False
-    torch.backends.cudnn.seed_everything = True
+    torch.backends.cudnn.deterministic = True
 
 
 seed_everything()
@@ -94,6 +94,8 @@ print(submission_file)
 
 current_dir = os.path.dirname(os.path.realpath(__file__))
 
+if not os.path.exists(args.csv_path):
+    os.makedirs(args.csv_path)
 
 if not os.path.exists(args.output_path + 'v' + str(args.version)):
     os.makedirs(args.output_path + 'v' + str(args.version))

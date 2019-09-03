@@ -31,7 +31,7 @@ def seed_everything(seed=10):
     torch.manual_seed(seed)
     torch.cuda.manual_seed(seed)
     torch.backends.cudnn.benchmark = False
-    torch.backends.cudnn.seed_everything = True
+    torch.backends.cudnn.deterministic = True
 
 
 seed_everything()
@@ -71,8 +71,8 @@ submission_file = basic_name + '.csv'
 print(save_model_name)
 print(submission_file)
 
-if not os.path.exists(args.input_path):
-    os.makedirs(args.input_path)
+if not os.path.exists(args.csv_path):
+    os.makedirs(args.csv_path)
 
 if not os.path.exists(args.output_path + 'v' + str(args.version)):
     os.makedirs(args.output_path + 'v' + str(args.version))
